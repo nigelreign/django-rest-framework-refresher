@@ -26,20 +26,28 @@ from django.shortcuts import get_object_or_404
 
 # View set
 # To bind these to the url you need to use routers
-
-# Generic View Set
-# THIS IS THE BEST WAY DAMMMMMN!!!!!!!!!!!!!!!!!!!!!!
-# it handles GET, POST, PUT and Delete in a few lines of code
-class ArticleViewSet(viewsets.GenericViewSet,
-    mixins.ListModelMixin,
-    mixins.CreateModelMixin,
-    mixins.UpdateModelMixin,
-    mixins.DestroyModelMixin,
-    mixins.RetrieveModelMixin):
-
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ModelView Set
+# Well this one is the TRRRRRRRRRUUUUUUUUTTTTTHHHHH!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+class ArticleViewSet(viewsets.ModelViewSet):
     serializer_class = ArticleSerializer
     queryset = Article.objects.all()
 
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# # Generic View Set
+# THIS IS THE BEST WAY DAMMMMMN!!!!!!!!!!!!!!!!!!!!!!
+# it handles GET, POST, PUT and Delete in a few lines of code
+# class ArticleViewSet(viewsets.GenericViewSet,
+#     mixins.ListModelMixin,
+#     mixins.CreateModelMixin,
+#     mixins.UpdateModelMixin,
+#     mixins.DestroyModelMixin,
+#     mixins.RetrieveModelMixin):
+
+#     serializer_class = ArticleSerializer
+#     queryset = Article.objects.all()
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # General View Set
 # class ArticleViewSet(viewsets.ViewSet):
 
@@ -71,7 +79,7 @@ class ArticleViewSet(viewsets.GenericViewSet,
 #         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Generic api view
 class GenericAPIView(
     generics.GenericAPIView,
@@ -108,7 +116,7 @@ class GenericAPIView(
 
     def delete(self, request):
         return self.destroy(request, id)
-
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # General class
 class ArticleAPIView(APIView):
     def get(self, request):
