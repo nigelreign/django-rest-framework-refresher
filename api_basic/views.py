@@ -29,6 +29,7 @@ from django.shortcuts import get_object_or_404
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ModelView Set
 # Well this one is the TRRRRRRRRRUUUUUUUUTTTTTHHHHH!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# POST, GET, DELETE, PUT come shipped with this code
 class ArticleViewSet(viewsets.ModelViewSet):
     serializer_class = ArticleSerializer
     queryset = Article.objects.all()
