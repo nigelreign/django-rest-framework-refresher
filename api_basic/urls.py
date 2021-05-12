@@ -2,6 +2,10 @@ from django.urls import path, include
 # from .views import article_list, article_detail, ArticleAPIView
 from .views import ArticleAPIView, ArticleDetailsAPIView, GenericAPIView, ArticleViewSet
 from rest_framework.routers import DefaultRouter
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
 
 # register the router
 router = DefaultRouter()
@@ -20,6 +24,10 @@ urlpatterns = [
     path('article/<int:id>/', ArticleDetailsAPIView.as_view()),
 
     # viewset
-    path('viewset/', include(router.urls)),
+    path('api/', include(router.urls)),
     path('viewset/<int:pk>/', include(router.urls)),
+
+    # JWT auth URL
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]

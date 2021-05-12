@@ -23,4 +23,10 @@ cd /vouchersystemApi
 
 ## install an new app
 ``` python3 manage.py startapp api_basic ```
+
+# Notes
+~> create serializers.py to handle what type of data you retrieve
+
+# Installing JWT for auth
+``` pip install djangorestframework-simplejwt ```
  
