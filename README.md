@@ -29,4 +29,8 @@ cd /vouchersystemApi
 
 # Installing JWT for auth
 ``` pip install djangorestframework-simplejwt ```
+
+## Lint
+
+``` pip install -U black ```
  
